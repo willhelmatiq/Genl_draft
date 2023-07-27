@@ -59,6 +59,16 @@ android {
 dependencies {
 
     implementation ("androidx.appcompat:appcompat:1.6.1")
+    implementation("androidx.recyclerview:recyclerview:1.3.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.1")
+    implementation("androidx.compose.runtime:runtime-livedata")
+
+    // Coil libraries
+    implementation("io.coil-kt:coil-compose:2.4.0")
+//    implementation(libs.coil.compose)
+
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
 
     // Room
     val roomVersion = "2.5.2"

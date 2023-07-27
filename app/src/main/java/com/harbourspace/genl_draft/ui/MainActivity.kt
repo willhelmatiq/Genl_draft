@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -39,18 +40,27 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.startActivity
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.harbourspace.genl_draft.AppApplication
+import com.harbourspace.genl_draft.EXTRA_TEXT
 import com.harbourspace.genl_draft.R
+import com.harbourspace.genl_draft.UnsplashViewModel
+import com.harbourspace.genl_draft.ui.data.UnsplashPhoto
 import com.harbourspace.genl_draft.ui.theme.Genl_draftTheme
 
 class MainActivity : ComponentActivity() {
+
     @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContent {
             Genl_draftTheme {
                 // A surface container using the 'background' color from the theme
+                val search = remember { mutableStateOf("") }
                 Scaffold(
                     topBar = {
                         TopAppBar(
@@ -71,9 +81,8 @@ class MainActivity : ComponentActivity() {
                             })
                     },
                     floatingActionButton = {
-                        FloatingActionButton(onClick = {}) {
+                        FloatingActionButton(onClick = {openShowPhotoActivity(search.value)}) {
                             Text("G")
-
                         }
                     }
                 ) {
@@ -100,7 +109,7 @@ class MainActivity : ComponentActivity() {
                                 .fillMaxHeight(1.0f),
                             verticalAlignment = Alignment.Bottom
                         ) {
-                            val search = remember { mutableStateOf("") }
+
                             TextField(
                                 value = search.value,
                                 onValueChange = { value ->
@@ -145,7 +154,11 @@ class MainActivity : ComponentActivity() {
         finish()
     }
 
-
+    private fun openShowPhotoActivity(text: String) {
+        val intent = Intent(this, ShowPhotoActivity::class.java)
+        intent.putExtra(EXTRA_TEXT, text)
+        startActivity(intent)
+    }
 }
 
 @Composable
