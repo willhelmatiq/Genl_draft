@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Genl_draft</string>
+
+
+    <string name="menu_chat">My chat</string>
+
+    <!-- Login -->
+    <string name="login_username_hint">Your username</string>
+    <string name="login_password_hint">Password</string>
+    <string name="login_sign_in">Sign In</string>
+    <string name="login_register">Register</string>
+
+
 </resources>

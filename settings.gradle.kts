@@ -13,4 +13,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "Genl_draft"
-include ':app'
+include(":app")
