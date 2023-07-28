@@ -1,5 +1,3 @@
-import com.android.build.api.dsl.Packaging
-
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -67,6 +65,9 @@ dependencies {
     // Coil libraries
     implementation("io.coil-kt:coil-compose:2.4.0")
 //    implementation(libs.coil.compose)
+
+    // Accompanist
+    implementation("com.google.accompanist:accompanist-pager-indicators:0.31.5-beta")
 
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
 

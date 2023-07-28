@@ -7,7 +7,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 @Parcelize
 data class Links(
-    val download: String,
-    val html: String,
-    val self: String
+    val download: String?,
+    val html: String?,
+    val self: String?
 ) : Parcelable

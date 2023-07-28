@@ -22,6 +22,10 @@ class UnsplashViewModel(
     private val _loading = MutableLiveData(false)
     val loading: LiveData<Boolean> = _loading
 
+//    private val _collections = MutableLiveData<List<UnsplashPhoto>>()
+//    val collections: LiveData<List<UnsplashPhoto>> = _collections
+
+
 
     fun searchImage(keyword: String) {
         provider.searchImage(keyword, this)
@@ -29,6 +33,13 @@ class UnsplashViewModel(
 
     private val provider by lazy {
         UnsplashApiProvider()
+    }
+
+
+    fun saveImage(image: UnsplashPhoto) {
+        if (image != null) {
+            repository.insert(image)
+        }
     }
 
 

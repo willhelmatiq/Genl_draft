@@ -19,12 +19,14 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
@@ -110,7 +112,7 @@ class LoginActivity : ComponentActivity() {
                         }
                     }
                 }
-             }
+            }
         }
     }
 
@@ -124,7 +126,8 @@ class LoginActivity : ComponentActivity() {
                 finish()
             } else {
                 Log.d(TAG, "Authentication failed. Error: ${it.exception}")
-                Toast.makeText(baseContext, it.exception?.localizedMessage, Toast.LENGTH_SHORT).show()
+                Toast.makeText(baseContext, it.exception?.localizedMessage, Toast.LENGTH_SHORT)
+                    .show()
             }
         }
     }
@@ -139,7 +142,8 @@ class LoginActivity : ComponentActivity() {
                 finish()
             } else {
                 Log.d(TAG, "Authentication failed. Error: ${it.exception}")
-                Toast.makeText(baseContext, it.exception?.localizedMessage, Toast.LENGTH_SHORT).show()
+                Toast.makeText(baseContext, it.exception?.localizedMessage, Toast.LENGTH_SHORT)
+                    .show()
             }
         }
     }
@@ -163,6 +167,12 @@ fun AddCustomTextField(
                 maxLines = 1
             )
         },
-        visualTransformation = visualTransformation
+        visualTransformation = visualTransformation,
+        colors = TextFieldDefaults.colors(
+            focusedTextColor = Color.Black,
+            focusedContainerColor = Color.Transparent,
+            unfocusedContainerColor = Color.Transparent,
+            unfocusedTextColor = Color.DarkGray,
+        )
     )
 }

@@ -5,6 +5,9 @@
     <string name="menu_chat">My chat</string>
     <string name="return_to_chat">Return to chat</string>
 
+    <string name="like_picture">Like picture</string>
+    <string name="go_to_checkroom">Go to checkroom</string>
+
     <!-- Login -->
     <string name="login_username_hint">Your username</string>
     <string name="login_password_hint">Password</string>
